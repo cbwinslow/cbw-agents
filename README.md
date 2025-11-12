@@ -17,11 +17,29 @@ cbw-agents/
 │   ├── testing_quality_rules.md
 │   ├── performance_rules.md
 │   └── documentation_rules.md
-├── tools/                    # Agent tools and utilities
-├── toolsets/                 # Tool collections and configurations
+├── tools/                    # Individual agent tools and utilities
+│   ├── README.md            # Tools documentation and usage
+│   ├── file_operations.py   # File system operations tool
+│   ├── web_operations.py    # Web scraping and API tool
+│   ├── data_processing.py   # Data analysis and processing tool
+│   └── code_analysis.py    # Static code analysis tool
+├── toolsets/                 # Combined toolsets for specific workflows
+│   ├── README.md            # Toolsets documentation
+│   ├── web_research.py      # Web research toolset
+│   └── code_development.py # Code development toolset
 ├── agents/                   # Individual agent configurations
+│   ├── README.md            # Agent documentation
+│   ├── web_research_agent.json
+│   ├── code_analysis_agent.json
+│   └── data_processing_agent.json
 ├── crews/                    # CrewAI crew configurations
+│   ├── README.md            # Crew documentation
+│   ├── research_analysis_crew.json
+│   └── software_development_crew.json
 ├── mcp-servers/              # MCP server configurations
+│   ├── README.md            # MCP server documentation
+│   ├── file_operations_server.json
+│   └── web_operations_server.json
 └── docs/                     # Additional documentation
 ```
 
@@ -55,11 +73,28 @@ cbw-agents/
 
 ## 🛠️ Components
 
-- **Tools**: Individual agent tools and utilities
-- **Toolsets**: Curated collections of tools for specific tasks
-- **Agents**: Complete agent configurations and profiles
-- **Crews**: Multi-agent collaboration setups using CrewAI
-- **MCP Servers**: Model Context Protocol server configurations
+### 🔧 Tools (4 Available)
+- **File Operations**: Comprehensive file system operations with safety features
+- **Web Operations**: Web scraping, API calls, and data extraction
+- **Data Processing**: Data analysis, cleaning, and transformation
+- **Code Analysis**: Static code analysis and security scanning
+
+### 🎯 Toolsets (2 Available)
+- **Web Research**: Combined web research and data extraction workflow
+- **Code Development**: Comprehensive code analysis and development workflow
+
+### 🤖 Agents (3 Available)
+- **Web Research Agent**: Specialized for online research and source validation
+- **Code Analysis Agent**: Security auditing and code quality assessment
+- **Data Processing Agent**: Data analysis and statistical processing
+
+### 👥 Crews (2 Available)
+- **Research Analysis Crew**: Multi-agent research and analysis team
+- **Software Development Crew**: Code analysis and quality assurance team
+
+### 🔌 MCP Servers (2 Available)
+- **File Operations Server**: MCP interface for file system operations
+- **Web Operations Server**: MCP interface for web operations and scraping
 
 ## 🤝 Contributing
 
