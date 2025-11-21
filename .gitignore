@@ -315,3 +315,5 @@ dot_dotnet/corefx/cryptography/crls/
 .config/Code*/User/globalStorage/**/tasks/*/checkpoints/*
 .config/Code-Insiders/User/globalStorage/**/checkpoints/*
 .config/Code-Insiders/User/globalStorage/**/tasks/*/checkpoints/*
+*.html
+*.json
