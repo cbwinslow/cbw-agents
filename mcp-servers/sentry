@@ -1,0 +1,13 @@
+Copied
+
+{
+  "mcpServers": {
+    "Sentry": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote@latest", "https://mcp.sentry.dev/mcp"]
+    }
+  }
+}
+
+
+npx @sentry/mcp-server@latest --access-token=sentry-user-token --host=sentry.example.com
