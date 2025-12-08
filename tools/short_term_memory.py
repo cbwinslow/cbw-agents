@@ -68,7 +68,8 @@ class ShortTermMemoryTool:
             Success status and conversation info
         """
         try:
-            # Estimate tokens (rough: 4 chars per token)
+            # Estimate tokens (rough approximation: ~4 chars per token)
+            # Note: For production, consider using tiktoken or similar for accurate counts
             tokens = len(content) // 4
             
             message = {

@@ -177,12 +177,18 @@ class TaskDecomposerTool:
         subtasks = []
         
         # Determine number of subtasks based on complexity
-        num_subtasks = {
+        # These values represent typical project phases and can be adjusted
+        # Simple: 2 phases (design, implement)
+        # Moderate: 3 phases (design, implement, test)
+        # Complex: 5 phases (research, design, implement, test, document)
+        # Very Complex: 8 phases (full SDLC)
+        SUBTASK_COUNT_BY_COMPLEXITY = {
             TaskComplexity.SIMPLE.value: 2,
             TaskComplexity.MODERATE.value: 3,
             TaskComplexity.COMPLEX.value: 5,
             TaskComplexity.VERY_COMPLEX.value: 8
-        }.get(complexity, 3)
+        }
+        num_subtasks = SUBTASK_COUNT_BY_COMPLEXITY.get(complexity, 3)
         
         # Common task phases
         phases = [

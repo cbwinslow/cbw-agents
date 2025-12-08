@@ -84,9 +84,27 @@ class RabbitMQIntegrationTool:
         self._mock_connect()
     
     def _mock_connect(self):
-        """Mock connection for demonstration."""
+        """
+        Mock connection for demonstration purposes only.
+        
+        NOTE: This is a mock implementation. For production use:
+        1. Install pika: pip install pika
+        2. Replace this with actual RabbitMQ connection using pika
+        3. Update all methods to use pika's channel operations
+        
+        Example production connection:
+            import pika
+            credentials = pika.PlainCredentials(self.username, password)
+            parameters = pika.ConnectionParameters(
+                host=self.host, port=self.port,
+                virtual_host=self.virtual_host,
+                credentials=credentials
+            )
+            self.connection = pika.BlockingConnection(parameters)
+            self.channel = self.connection.channel()
+        """
         self.connected = True
-        logger.info("Connected to RabbitMQ (mock)")
+        logger.info("Connected to RabbitMQ (mock implementation - not for production)")
     
     def create_exchange(self, exchange_name: str, exchange_type: str = "topic",
                        durable: bool = True, auto_delete: bool = False) -> Dict[str, Any]:
