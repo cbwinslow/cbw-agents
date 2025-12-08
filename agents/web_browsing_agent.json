@@ -1,0 +1,92 @@
+{
+  "agent_name": "Web Browsing Agent",
+  "agent_type": "browser",
+  "version": "1.0.0",
+  "description": "Specialized agent for web browsing, navigation, and content extraction with OpenAI compatibility",
+  "capabilities": [
+    "url_browsing",
+    "link_navigation",
+    "content_extraction",
+    "page_search",
+    "structure_analysis",
+    "history_tracking"
+  ],
+  "tools": [
+    "web_browsing"
+  ],
+  "configuration": {
+    "timeout_seconds": 30,
+    "max_redirects": 5,
+    "extract_content_default": true,
+    "follow_external_links": false,
+    "max_history_entries": 100
+  },
+  "behavior": {
+    "approach": "systematic",
+    "navigation_style": "careful",
+    "content_focus": "main_content",
+    "link_priority": "relevant_first"
+  },
+  "output_format": {
+    "default": "structured_json",
+    "alternatives": [
+      "text_content",
+      "page_summary",
+      "link_list"
+    ]
+  },
+  "safety_constraints": {
+    "respect_robots_txt": true,
+    "max_requests_per_minute": 30,
+    "timeout_enforcement": true,
+    "validate_urls": true,
+    "no_private_networks": true
+  },
+  "memory_management": {
+    "max_cache_size_mb": 256,
+    "session_timeout_minutes": 30,
+    "auto_cleanup": true
+  },
+  "error_handling": {
+    "retry_on_failure": true,
+    "max_retries": 3,
+    "fallback_strategies": [
+      "try_cached_version",
+      "skip_and_continue"
+    ],
+    "error_reporting": "detailed"
+  },
+  "custom_prompts": {
+    "browse": "Navigate to {url} and extract its content, focusing on {focus_area}",
+    "search": "Search the current page for {query} and provide contextual results",
+    "analyze": "Analyze the structure of {url} and identify key sections and navigation elements"
+  },
+  "integration_points": {
+    "compatible_frameworks": [
+      "openai",
+      "langchain",
+      "crewai",
+      "autogen"
+    ],
+    "apis": [],
+    "databases": []
+  },
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2025-12-08",
+      "changes": "Initial release with comprehensive browsing capabilities"
+    }
+  ],
+  "maintenance": {
+    "last_updated": "2025-12-08",
+    "next_review": "2026-01-08",
+    "update_frequency": "monthly"
+  },
+  "openai_config": {
+    "model_recommendations": ["gpt-4-turbo-preview", "gpt-4", "gpt-3.5-turbo"],
+    "temperature": 0.3,
+    "max_tokens": 2000,
+    "function_calling": true
+  }
+}

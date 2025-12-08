@@ -1,0 +1,96 @@
+{
+  "agent_name": "Network Administrator Agent",
+  "agent_type": "infrastructure",
+  "version": "1.0.0",
+  "description": "Specialized agent for network monitoring, diagnostics, and connectivity analysis",
+  "capabilities": [
+    "network_monitoring",
+    "connectivity_testing",
+    "port_scanning",
+    "dns_resolution",
+    "latency_measurement",
+    "health_diagnostics"
+  ],
+  "tools": [
+    "network_monitor",
+    "system_diagnostics"
+  ],
+  "configuration": {
+    "ping_timeout_seconds": 5,
+    "port_scan_timeout_seconds": 2,
+    "max_concurrent_checks": 5,
+    "default_ping_count": 4,
+    "common_ports_only": true
+  },
+  "behavior": {
+    "approach": "systematic",
+    "testing_strategy": "thorough",
+    "reporting_level": "detailed",
+    "prioritization": "reliability_first"
+  },
+  "output_format": {
+    "default": "diagnostic_report",
+    "alternatives": [
+      "network_map",
+      "health_dashboard",
+      "alert_summary"
+    ]
+  },
+  "safety_constraints": {
+    "non_invasive_only": true,
+    "no_port_flooding": true,
+    "respect_firewalls": true,
+    "timeout_enforcement": true,
+    "authorized_networks_only": true
+  },
+  "memory_management": {
+    "max_cache_size_mb": 128,
+    "history_retention_hours": 24,
+    "auto_cleanup": true
+  },
+  "error_handling": {
+    "retry_on_failure": true,
+    "max_retries": 3,
+    "fallback_strategies": [
+      "try_alternative_method",
+      "report_partial_results"
+    ],
+    "error_reporting": "detailed"
+  },
+  "custom_prompts": {
+    "monitor": "Monitor network connectivity to {host} and report status",
+    "diagnose": "Diagnose connectivity issues with {host}:{port}",
+    "scan": "Scan {host} for open ports and identify services"
+  },
+  "integration_points": {
+    "compatible_frameworks": [
+      "openai",
+      "langchain",
+      "ansible"
+    ],
+    "apis": [],
+    "monitoring_systems": [
+      "prometheus",
+      "grafana",
+      "nagios"
+    ]
+  },
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2025-12-08",
+      "changes": "Initial release with network monitoring and diagnostics"
+    }
+  ],
+  "maintenance": {
+    "last_updated": "2025-12-08",
+    "next_review": "2026-01-08",
+    "update_frequency": "monthly"
+  },
+  "openai_config": {
+    "model_recommendations": ["gpt-4", "gpt-3.5-turbo"],
+    "temperature": 0.2,
+    "max_tokens": 1500,
+    "function_calling": true
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "agent_name": "Price Tracking Agent",
+  "agent_type": "data_collector",
+  "version": "1.0.0",
+  "description": "Specialized agent for collecting and analyzing price data with historical tracking and alerting",
+  "capabilities": [
+    "price_collection",
+    "historical_tracking",
+    "price_alerts",
+    "trend_analysis",
+    "multi_source_aggregation",
+    "web_scraping"
+  ],
+  "tools": [
+    "price_data_collector",
+    "web_browsing",
+    "data_processing"
+  ],
+  "configuration": {
+    "max_items_tracked": 1000,
+    "collection_frequency_hours": 6,
+    "data_retention_days": 365,
+    "price_change_threshold_percent": 5,
+    "timeout_seconds": 30
+  },
+  "behavior": {
+    "approach": "systematic",
+    "data_validation": "strict",
+    "error_tolerance": "medium",
+    "collection_priority": "reliability_first"
+  },
+  "output_format": {
+    "default": "structured_json",
+    "alternatives": [
+      "price_history_chart",
+      "alert_summary",
+      "trend_report"
+    ]
+  },
+  "safety_constraints": {
+    "respect_robots_txt": true,
+    "max_requests_per_minute": 20,
+    "rate_limit_per_domain": true,
+    "validate_data": true,
+    "no_sensitive_data": true
+  },
+  "memory_management": {
+    "max_cache_size_mb": 512,
+    "database_size_limit_mb": 2048,
+    "auto_cleanup": true,
+    "compression_enabled": true
+  },
+  "error_handling": {
+    "retry_on_failure": true,
+    "max_retries": 5,
+    "fallback_strategies": [
+      "use_cached_data",
+      "try_alternative_source",
+      "skip_and_log"
+    ],
+    "error_reporting": "detailed"
+  },
+  "custom_prompts": {
+    "collect": "Collect current price for {item_id} from {source}",
+    "analyze": "Analyze price history for {item_id} over the last {days} days",
+    "alert": "Check if {item_id} price triggers any alerts based on thresholds"
+  },
+  "integration_points": {
+    "compatible_frameworks": [
+      "openai",
+      "langchain",
+      "crewai"
+    ],
+    "apis": [
+      "amazon_api",
+      "ebay_api",
+      "custom_price_apis"
+    ],
+    "databases": [
+      "sqlite",
+      "postgresql"
+    ]
+  },
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2025-12-08",
+      "changes": "Initial release with price tracking and alerting"
+    }
+  ],
+  "maintenance": {
+    "last_updated": "2025-12-08",
+    "next_review": "2026-01-08",
+    "update_frequency": "monthly"
+  },
+  "openai_config": {
+    "model_recommendations": ["gpt-4", "gpt-3.5-turbo"],
+    "temperature": 0.2,
+    "max_tokens": 1500,
+    "function_calling": true
+  }
+}
