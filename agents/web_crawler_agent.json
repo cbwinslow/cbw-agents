@@ -1,0 +1,98 @@
+{
+  "agent_name": "Web Crawler Agent",
+  "agent_type": "crawler",
+  "version": "1.0.0",
+  "description": "Specialized agent for systematic web crawling, link discovery, and content extraction across websites",
+  "capabilities": [
+    "site_crawling",
+    "link_discovery",
+    "content_extraction",
+    "broken_link_detection",
+    "email_extraction",
+    "sitemap_parsing"
+  ],
+  "tools": [
+    "web_crawler",
+    "web_browsing",
+    "web_to_markdown"
+  ],
+  "configuration": {
+    "max_pages_per_crawl": 100,
+    "max_depth": 3,
+    "request_delay_seconds": 1.0,
+    "timeout_seconds": 30,
+    "same_domain_only": true,
+    "follow_nofollow_links": false
+  },
+  "behavior": {
+    "approach": "breadth_first",
+    "crawling_strategy": "systematic",
+    "content_priority": "structure_and_links",
+    "politeness_level": "high"
+  },
+  "output_format": {
+    "default": "crawl_report",
+    "alternatives": [
+      "link_graph",
+      "sitemap_json",
+      "content_archive"
+    ]
+  },
+  "safety_constraints": {
+    "respect_robots_txt": true,
+    "max_requests_per_minute": 30,
+    "rate_limit_enforcement": true,
+    "domain_whitelist_enabled": false,
+    "no_authentication_bypass": true
+  },
+  "memory_management": {
+    "max_cache_size_mb": 1024,
+    "url_deduplication": true,
+    "auto_cleanup": true,
+    "persistent_storage": false
+  },
+  "error_handling": {
+    "retry_on_failure": true,
+    "max_retries": 3,
+    "fallback_strategies": [
+      "skip_page_continue_crawl",
+      "try_alternative_path"
+    ],
+    "error_reporting": "summary"
+  },
+  "custom_prompts": {
+    "crawl": "Crawl {url} up to depth {depth}, focusing on {content_type}",
+    "analyze": "Analyze the site structure of {url} and identify key sections",
+    "extract": "Extract all {data_type} from {url} and related pages"
+  },
+  "integration_points": {
+    "compatible_frameworks": [
+      "openai",
+      "langchain",
+      "scrapy"
+    ],
+    "apis": [],
+    "databases": [
+      "sqlite",
+      "mongodb"
+    ]
+  },
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2025-12-08",
+      "changes": "Initial release with crawling and extraction capabilities"
+    }
+  ],
+  "maintenance": {
+    "last_updated": "2025-12-08",
+    "next_review": "2026-01-08",
+    "update_frequency": "monthly"
+  },
+  "openai_config": {
+    "model_recommendations": ["gpt-4", "gpt-3.5-turbo"],
+    "temperature": 0.3,
+    "max_tokens": 2000,
+    "function_calling": true
+  }
+}

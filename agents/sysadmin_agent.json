@@ -1,0 +1,112 @@
+{
+  "agent_name": "System Administrator Agent",
+  "agent_type": "infrastructure",
+  "version": "1.0.0",
+  "description": "Specialized agent for system monitoring, health checks, and resource analysis",
+  "capabilities": [
+    "system_monitoring",
+    "resource_analysis",
+    "health_checks",
+    "performance_diagnostics",
+    "process_monitoring",
+    "disk_management"
+  ],
+  "tools": [
+    "system_diagnostics",
+    "network_monitor"
+  ],
+  "configuration": {
+    "monitoring_interval_seconds": 60,
+    "cpu_warning_threshold": 75,
+    "cpu_critical_threshold": 90,
+    "memory_warning_threshold": 75,
+    "memory_critical_threshold": 90,
+    "disk_warning_threshold": 75,
+    "disk_critical_threshold": 90
+  },
+  "behavior": {
+    "approach": "proactive",
+    "monitoring_style": "continuous",
+    "alert_priority": "critical_first",
+    "analysis_depth": "comprehensive"
+  },
+  "output_format": {
+    "default": "health_report",
+    "alternatives": [
+      "resource_dashboard",
+      "alert_list",
+      "performance_metrics"
+    ]
+  },
+  "safety_constraints": {
+    "read_only_operations": true,
+    "no_system_modifications": true,
+    "no_process_termination": true,
+    "authorized_access_only": true,
+    "secure_logging": true
+  },
+  "memory_management": {
+    "max_cache_size_mb": 256,
+    "metrics_retention_hours": 72,
+    "auto_cleanup": true,
+    "compression_enabled": true
+  },
+  "error_handling": {
+    "retry_on_failure": true,
+    "max_retries": 3,
+    "fallback_strategies": [
+      "use_cached_metrics",
+      "report_partial_data"
+    ],
+    "error_reporting": "detailed"
+  },
+  "monitoring": {
+    "log_level": "info",
+    "metrics_collection": true,
+    "performance_tracking": true,
+    "audit_trail": true,
+    "alert_system": "enabled"
+  },
+  "custom_prompts": {
+    "monitor": "Monitor system resources and report current status",
+    "diagnose": "Diagnose performance issues and identify bottlenecks",
+    "analyze": "Analyze system health and provide recommendations",
+    "alert": "Check for critical resource utilization and generate alerts"
+  },
+  "integration_points": {
+    "compatible_frameworks": [
+      "openai",
+      "langchain",
+      "ansible",
+      "terraform"
+    ],
+    "monitoring_systems": [
+      "prometheus",
+      "grafana",
+      "datadog",
+      "new_relic"
+    ],
+    "databases": [
+      "influxdb",
+      "timescaledb"
+    ]
+  },
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2025-12-08",
+      "changes": "Initial release with system monitoring and diagnostics"
+    }
+  ],
+  "maintenance": {
+    "last_updated": "2025-12-08",
+    "next_review": "2026-01-08",
+    "update_frequency": "monthly"
+  },
+  "openai_config": {
+    "model_recommendations": ["gpt-4", "gpt-3.5-turbo"],
+    "temperature": 0.2,
+    "max_tokens": 2000,
+    "function_calling": true
+  }
+}

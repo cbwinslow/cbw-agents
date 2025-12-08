@@ -1,0 +1,306 @@
+{
+  "version": "1.0.0",
+  "description": "OpenAI-compatible tool registry for CBW Agents",
+  "last_updated": "2025-12-08",
+  "categories": {
+    "web_operations": {
+      "description": "Tools for web browsing, scraping, and content extraction",
+      "tools": [
+        "web_browsing",
+        "web_to_markdown",
+        "web_crawler",
+        "file_downloader"
+      ]
+    },
+    "data_collection": {
+      "description": "Tools for collecting and tracking various types of data",
+      "tools": [
+        "price_data_collector",
+        "bookmarks_manager"
+      ]
+    },
+    "analysis": {
+      "description": "Tools for analyzing content, images, and data",
+      "tools": [
+        "image_analyzer",
+        "data_processing"
+      ]
+    },
+    "infrastructure": {
+      "description": "Tools for system and network monitoring",
+      "tools": [
+        "network_monitor",
+        "system_diagnostics"
+      ]
+    },
+    "file_operations": {
+      "description": "Tools for file system operations",
+      "tools": [
+        "file_operations",
+        "file_downloader"
+      ]
+    }
+  },
+  "tools": {
+    "web_browsing": {
+      "name": "web_browsing",
+      "version": "1.0.0",
+      "description": "Browse URLs and extract content with navigation capabilities",
+      "category": "web_operations",
+      "complexity": "simple",
+      "openai_compatible": true,
+      "module_path": "tools.web_browsing",
+      "class_name": "WebBrowsingTool",
+      "functions": [
+        "browse_url",
+        "click_link",
+        "search_page",
+        "get_page_structure",
+        "get_history"
+      ],
+      "requirements": ["requests", "beautifulsoup4", "lxml"],
+      "use_cases": [
+        "web_navigation",
+        "content_extraction",
+        "link_discovery",
+        "page_analysis"
+      ]
+    },
+    "file_downloader": {
+      "name": "file_downloader",
+      "version": "1.0.0",
+      "description": "Download files with progress tracking and validation",
+      "category": "file_operations",
+      "complexity": "simple",
+      "openai_compatible": true,
+      "module_path": "tools.file_downloader",
+      "class_name": "FileDownloaderTool",
+      "functions": [
+        "download_file",
+        "download_multiple",
+        "get_file_info",
+        "list_downloads",
+        "delete_download"
+      ],
+      "requirements": ["requests", "pathlib", "hashlib"],
+      "use_cases": [
+        "file_downloading",
+        "batch_downloads",
+        "download_management"
+      ]
+    },
+    "web_to_markdown": {
+      "name": "web_to_markdown",
+      "version": "1.0.0",
+      "description": "Convert web pages to clean Markdown format",
+      "category": "web_operations",
+      "complexity": "simple",
+      "openai_compatible": true,
+      "module_path": "tools.web_to_markdown",
+      "class_name": "WebToMarkdownTool",
+      "functions": [
+        "convert_url",
+        "convert_html",
+        "convert_to_file",
+        "batch_convert"
+      ],
+      "requirements": ["requests", "beautifulsoup4", "html2text"],
+      "use_cases": [
+        "content_conversion",
+        "documentation_generation",
+        "article_archiving"
+      ]
+    },
+    "bookmarks_manager": {
+      "name": "bookmarks_manager",
+      "version": "1.0.0",
+      "description": "Manage bookmarks with tagging and search capabilities",
+      "category": "data_collection",
+      "complexity": "medium",
+      "openai_compatible": true,
+      "module_path": "tools.bookmarks_manager",
+      "class_name": "BookmarksManagerTool",
+      "functions": [
+        "add_bookmark",
+        "search_bookmarks",
+        "update_bookmark",
+        "delete_bookmark",
+        "get_all_tags",
+        "export_bookmarks"
+      ],
+      "requirements": ["sqlite3", "pathlib", "json"],
+      "use_cases": [
+        "bookmark_organization",
+        "research_management",
+        "link_curation"
+      ]
+    },
+    "image_analyzer": {
+      "name": "image_analyzer",
+      "version": "1.0.0",
+      "description": "Analyze images for properties, metadata, and content",
+      "category": "analysis",
+      "complexity": "medium",
+      "openai_compatible": true,
+      "module_path": "tools.image_analyzer",
+      "class_name": "ImageAnalyzerTool",
+      "functions": [
+        "analyze_image",
+        "compare_images",
+        "batch_analyze",
+        "get_thumbnail"
+      ],
+      "requirements": ["Pillow", "requests"],
+      "use_cases": [
+        "image_analysis",
+        "metadata_extraction",
+        "image_comparison"
+      ]
+    },
+    "price_data_collector": {
+      "name": "price_data_collector",
+      "version": "1.0.0",
+      "description": "Collect and track price data with historical tracking",
+      "category": "data_collection",
+      "complexity": "medium",
+      "openai_compatible": true,
+      "module_path": "tools.price_data_collector",
+      "class_name": "PriceDataCollectorTool",
+      "functions": [
+        "collect_price",
+        "collect_multiple",
+        "get_price_history",
+        "get_price_alerts"
+      ],
+      "requirements": ["requests", "beautifulsoup4", "sqlite3"],
+      "use_cases": [
+        "price_tracking",
+        "market_analysis",
+        "alert_monitoring"
+      ]
+    },
+    "web_crawler": {
+      "name": "web_crawler",
+      "version": "1.0.0",
+      "description": "Systematically crawl websites with depth control",
+      "category": "web_operations",
+      "complexity": "complex",
+      "openai_compatible": true,
+      "module_path": "tools.web_crawler",
+      "class_name": "WebCrawlerTool",
+      "functions": [
+        "crawl_site",
+        "crawl_sitemap",
+        "find_broken_links",
+        "extract_emails"
+      ],
+      "requirements": ["requests", "beautifulsoup4", "lxml"],
+      "use_cases": [
+        "site_mapping",
+        "content_discovery",
+        "link_validation",
+        "data_extraction"
+      ]
+    },
+    "network_monitor": {
+      "name": "network_monitor",
+      "version": "1.0.0",
+      "description": "Monitor network connectivity and performance",
+      "category": "infrastructure",
+      "complexity": "complex",
+      "openai_compatible": true,
+      "module_path": "tools.network_monitor",
+      "class_name": "NetworkMonitorTool",
+      "functions": [
+        "ping_host",
+        "check_port",
+        "scan_ports",
+        "dns_lookup",
+        "test_connection"
+      ],
+      "requirements": ["socket", "subprocess", "platform"],
+      "use_cases": [
+        "connectivity_testing",
+        "network_diagnostics",
+        "port_scanning",
+        "dns_resolution"
+      ]
+    },
+    "system_diagnostics": {
+      "name": "system_diagnostics",
+      "version": "1.0.0",
+      "description": "Monitor system health and resource usage",
+      "category": "infrastructure",
+      "complexity": "complex",
+      "openai_compatible": true,
+      "module_path": "tools.system_diagnostics",
+      "class_name": "SystemDiagnosticsTool",
+      "functions": [
+        "get_system_info",
+        "check_cpu",
+        "check_memory",
+        "check_disk",
+        "check_network",
+        "check_processes",
+        "health_check"
+      ],
+      "requirements": ["psutil", "platform"],
+      "use_cases": [
+        "system_monitoring",
+        "resource_analysis",
+        "health_checks",
+        "performance_diagnostics"
+      ]
+    }
+  },
+  "agents": {
+    "web_browsing_agent": {
+      "name": "Web Browsing Agent",
+      "description": "Specialized agent for web browsing and navigation",
+      "primary_tools": ["web_browsing"],
+      "complexity": "simple",
+      "config_file": "agents/web_browsing_agent.json"
+    },
+    "price_tracking_agent": {
+      "name": "Price Tracking Agent",
+      "description": "Specialized agent for price collection and tracking",
+      "primary_tools": ["price_data_collector", "web_browsing"],
+      "complexity": "medium",
+      "config_file": "agents/price_tracking_agent.json"
+    },
+    "web_crawler_agent": {
+      "name": "Web Crawler Agent",
+      "description": "Specialized agent for systematic web crawling",
+      "primary_tools": ["web_crawler", "web_browsing"],
+      "complexity": "complex",
+      "config_file": "agents/web_crawler_agent.json"
+    },
+    "network_admin_agent": {
+      "name": "Network Administrator Agent",
+      "description": "Specialized agent for network monitoring",
+      "primary_tools": ["network_monitor", "system_diagnostics"],
+      "complexity": "complex",
+      "config_file": "agents/network_admin_agent.json"
+    },
+    "sysadmin_agent": {
+      "name": "System Administrator Agent",
+      "description": "Specialized agent for system monitoring",
+      "primary_tools": ["system_diagnostics", "network_monitor"],
+      "complexity": "complex",
+      "config_file": "agents/sysadmin_agent.json"
+    }
+  },
+  "compatibility": {
+    "openai_function_calling": true,
+    "langchain": true,
+    "crewai": true,
+    "autogen": true,
+    "frameworks_supported": [
+      "openai",
+      "langchain",
+      "crewai",
+      "autogen",
+      "llamaindex"
+    ]
+  }
+}
