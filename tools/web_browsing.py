@@ -47,8 +47,7 @@ class WebBrowsingTool:
             response = self.session.get(
                 url, 
                 timeout=self.timeout,
-                allow_redirects=True,
-                max_redirects=self.max_redirects
+                allow_redirects=True
             )
             response.raise_for_status()
             

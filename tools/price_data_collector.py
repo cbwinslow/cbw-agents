@@ -402,8 +402,16 @@ class PriceDataCollectorTool:
     
     def _extract_price_from_text(self, text: str) -> Optional[float]:
         """Extract numeric price from text."""
-        # Remove common currency symbols and commas
-        cleaned = re.sub(r'[^\d.]', '', text)
+        # Remove currency symbols but keep digits, commas, and periods
+        cleaned = re.sub(r'[^\d.,]', '', text)
+        
+        # Remove commas (thousands separators)
+        cleaned = cleaned.replace(',', '')
+        
+        # Handle multiple decimal points by keeping only the last one
+        parts = cleaned.split('.')
+        if len(parts) > 2:
+            cleaned = ''.join(parts[:-1]) + '.' + parts[-1]
         
         try:
             return float(cleaned)

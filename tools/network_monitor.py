@@ -117,12 +117,13 @@ class NetworkMonitorTool:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.settimeout(timeout)
             
-            result = sock.connect_ex((host, port))
-            
-            end_time = time.time()
-            connection_time = round((end_time - start_time) * 1000, 2)
-            
-            sock.close()
+            try:
+                result = sock.connect_ex((host, port))
+                
+                end_time = time.time()
+                connection_time = round((end_time - start_time) * 1000, 2)
+            finally:
+                sock.close()
             
             is_open = result == 0
             

@@ -404,8 +404,15 @@ class BookmarksManagerTool:
     def _get_or_create_folder(self, folder_name: str, parent_id: Optional[int] = None) -> int:
         """Get or create a folder and return its ID."""
         cursor = self.conn.cursor()
-        cursor.execute("SELECT id FROM folders WHERE name = ? AND parent_id IS ?", 
-                      (folder_name, parent_id))
+        
+        # Handle NULL comparison properly for SQLite
+        if parent_id is None:
+            cursor.execute("SELECT id FROM folders WHERE name = ? AND parent_id IS NULL", 
+                          (folder_name,))
+        else:
+            cursor.execute("SELECT id FROM folders WHERE name = ? AND parent_id = ?", 
+                          (folder_name, parent_id))
+        
         row = cursor.fetchone()
         
         if row:

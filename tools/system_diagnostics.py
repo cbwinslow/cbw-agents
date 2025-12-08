@@ -20,6 +20,8 @@ class SystemDiagnosticsTool:
     def __init__(self):
         """Initialize system diagnostics tool."""
         self.system_info = self._get_system_info()
+        # Check platform capabilities once at initialization
+        self._has_soft_interrupts = hasattr(psutil.cpu_stats(), 'soft_interrupts')
     
     def get_system_info(self) -> Dict[str, Any]:
         """
@@ -66,7 +68,7 @@ class SystemDiagnosticsTool:
                 "cpu_stats": {
                     "context_switches": cpu_stats.ctx_switches,
                     "interrupts": cpu_stats.interrupts,
-                    "soft_interrupts": cpu_stats.soft_interrupts if hasattr(cpu_stats, 'soft_interrupts') else None
+                    "soft_interrupts": cpu_stats.soft_interrupts if self._has_soft_interrupts else None
                 },
                 "load_average": os.getloadavg() if hasattr(os, 'getloadavg') else None,
                 "timestamp": datetime.now().isoformat()

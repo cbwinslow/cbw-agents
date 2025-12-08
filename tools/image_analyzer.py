@@ -203,8 +203,12 @@ class ImageAnalyzerTool:
                     "error": "Failed to load image"
                 }
             
-            # Create thumbnail
-            img.thumbnail(max_size, Image.Resampling.LANCZOS)
+            # Create thumbnail (use LANCZOS for compatibility)
+            try:
+                img.thumbnail(max_size, Image.Resampling.LANCZOS)
+            except AttributeError:
+                # Fallback for older Pillow versions
+                img.thumbnail(max_size, Image.LANCZOS)
             
             return {
                 "success": True,
