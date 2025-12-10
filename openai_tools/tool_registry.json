@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "description": "OpenAI-compatible tool registry for CBW Agents",
+  "version": "2.0.0",
+  "description": "OpenAI-compatible tool registry for CBW Agents - Multi-Agent Democratic Systems",
   "last_updated": "2025-12-08",
   "categories": {
     "web_operations": {
@@ -38,6 +38,27 @@
       "tools": [
         "file_operations",
         "file_downloader"
+      ]
+    },
+    "memory_management": {
+      "description": "Tools for managing agent memory and knowledge",
+      "tools": [
+        "short_term_memory",
+        "long_term_memory"
+      ]
+    },
+    "multi_agent_collaboration": {
+      "description": "Tools for multi-agent democratic systems and collaboration",
+      "tools": [
+        "voting_system",
+        "delegation_manager",
+        "rabbitmq_integration"
+      ]
+    },
+    "reasoning_problem_solving": {
+      "description": "Tools for reasoning, problem-solving, and task management",
+      "tools": [
+        "task_decomposer"
       ]
     }
   },
@@ -250,6 +271,184 @@
         "resource_analysis",
         "health_checks",
         "performance_diagnostics"
+      ]
+    },
+    "short_term_memory": {
+      "name": "short_term_memory",
+      "version": "1.0.0",
+      "description": "Manage working memory and conversation context for AI agents",
+      "category": "memory_management",
+      "complexity": "medium",
+      "openai_compatible": true,
+      "module_path": "tools.short_term_memory",
+      "class_name": "ShortTermMemoryTool",
+      "functions": [
+        "add_to_conversation",
+        "get_conversation_context",
+        "clear_conversation",
+        "start_task",
+        "update_task_memory",
+        "get_task_memory",
+        "complete_task",
+        "store_temp_data",
+        "get_temp_data",
+        "cleanup_expired",
+        "get_memory_stats",
+        "clear_all"
+      ],
+      "requirements": ["json", "datetime"],
+      "use_cases": [
+        "conversation_management",
+        "task_tracking",
+        "temporary_data_storage",
+        "context_window_management"
+      ]
+    },
+    "long_term_memory": {
+      "name": "long_term_memory",
+      "version": "1.0.0",
+      "description": "Persistent memory storage with full-text search and indexing",
+      "category": "memory_management",
+      "complexity": "complex",
+      "openai_compatible": true,
+      "module_path": "tools.long_term_memory",
+      "class_name": "LongTermMemoryTool",
+      "functions": [
+        "store",
+        "retrieve",
+        "search",
+        "get_by_tags",
+        "get_recent",
+        "update_importance",
+        "delete",
+        "get_stats"
+      ],
+      "requirements": ["sqlite3", "json", "gzip"],
+      "use_cases": [
+        "knowledge_base",
+        "historical_data_storage",
+        "semantic_search",
+        "memory_retrieval"
+      ]
+    },
+    "voting_system": {
+      "name": "voting_system",
+      "version": "1.0.0",
+      "description": "Democratic voting system for multi-agent decision making",
+      "category": "multi_agent_collaboration",
+      "complexity": "complex",
+      "openai_compatible": true,
+      "module_path": "tools.voting_system",
+      "class_name": "VotingSystemTool",
+      "functions": [
+        "register_agent",
+        "create_proposal",
+        "cast_vote",
+        "tally_votes",
+        "get_proposal",
+        "list_proposals"
+      ],
+      "requirements": ["sqlite3", "json", "enum"],
+      "use_cases": [
+        "democratic_decision_making",
+        "consensus_building",
+        "agent_voting",
+        "quorum_management"
+      ],
+      "voting_strategies": [
+        "simple_majority",
+        "supermajority_2/3",
+        "supermajority_3/4",
+        "unanimous",
+        "weighted",
+        "ranked_choice"
+      ]
+    },
+    "delegation_manager": {
+      "name": "delegation_manager",
+      "version": "1.0.0",
+      "description": "Task delegation and progress tracking for multi-agent systems",
+      "category": "multi_agent_collaboration",
+      "complexity": "complex",
+      "openai_compatible": true,
+      "module_path": "tools.delegation_manager",
+      "class_name": "DelegationManagerTool",
+      "functions": [
+        "register_capability",
+        "find_capable_agents",
+        "delegate_task",
+        "accept_delegation",
+        "update_progress",
+        "complete_delegation",
+        "provide_feedback",
+        "get_delegation",
+        "list_delegations"
+      ],
+      "requirements": ["sqlite3", "json", "enum"],
+      "use_cases": [
+        "task_delegation",
+        "capability_matching",
+        "progress_monitoring",
+        "workload_distribution"
+      ]
+    },
+    "rabbitmq_integration": {
+      "name": "rabbitmq_integration",
+      "version": "1.0.0",
+      "description": "Message queue communication for asynchronous multi-agent messaging",
+      "category": "multi_agent_collaboration",
+      "complexity": "complex",
+      "openai_compatible": true,
+      "module_path": "tools.rabbitmq_integration",
+      "class_name": "RabbitMQIntegrationTool",
+      "functions": [
+        "create_exchange",
+        "create_queue",
+        "bind_queue",
+        "publish_message",
+        "consume_message",
+        "acknowledge_message",
+        "reject_message",
+        "get_queue_info",
+        "purge_queue"
+      ],
+      "requirements": ["json", "uuid"],
+      "optional_requirements": ["pika"],
+      "use_cases": [
+        "async_messaging",
+        "inter_agent_communication",
+        "message_queuing",
+        "pub_sub_patterns"
+      ],
+      "note": "Mock implementation included; use pika for production RabbitMQ"
+    },
+    "task_decomposer": {
+      "name": "task_decomposer",
+      "version": "1.0.0",
+      "description": "Break down complex tasks into manageable subtasks with dependencies",
+      "category": "reasoning_problem_solving",
+      "complexity": "complex",
+      "openai_compatible": true,
+      "module_path": "tools.task_decomposer",
+      "class_name": "TaskDecomposerTool",
+      "functions": [
+        "decompose_task",
+        "add_dependency",
+        "get_execution_order",
+        "get_task_tree",
+        "estimate_total_effort"
+      ],
+      "requirements": ["sqlite3", "json", "enum"],
+      "use_cases": [
+        "task_breakdown",
+        "dependency_management",
+        "execution_planning",
+        "effort_estimation"
+      ],
+      "decomposition_strategies": [
+        "hierarchical",
+        "sequential",
+        "parallel"
       ]
     }
   },
