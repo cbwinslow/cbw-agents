@@ -1,0 +1,182 @@
+{
+  "agent_name": "GitHub Analysis Agent",
+  "agent_type": "analysis",
+  "version": "1.0.0",
+  "description": "Specialized agent for analyzing GitHub repositories and accounts",
+  "capabilities": [
+    "repository_analysis",
+    "code_scanning",
+    "documentation_review",
+    "language_detection",
+    "dependency_analysis",
+    "repository_cataloging",
+    "bulk_operations"
+  ],
+  "tools": [
+    "github_operations",
+    "code_analysis",
+    "data_processing",
+    "file_operations"
+  ],
+  "configuration": {
+    "max_repos_per_analysis": 100,
+    "include_private_repos": true,
+    "analyze_dependencies": true,
+    "generate_diagrams": true,
+    "deep_scan": true,
+    "cache_results": true,
+    "parallel_processing": false
+  },
+  "behavior": {
+    "approach": "comprehensive",
+    "analysis_depth": "deep",
+    "documentation_quality": "high",
+    "report_format": "structured",
+    "include_recommendations": true
+  },
+  "output_format": {
+    "default": "markdown_report",
+    "alternatives": [
+      "json_structured",
+      "html_dashboard",
+      "csv_catalog"
+    ]
+  },
+  "analysis_categories": {
+    "repository_metadata": {
+      "description": "Basic repository information and statistics",
+      "fields": [
+        "name",
+        "description",
+        "stars",
+        "forks",
+        "watchers",
+        "size",
+        "created_at",
+        "updated_at",
+        "language",
+        "topics"
+      ]
+    },
+    "code_quality": {
+      "description": "Code quality metrics and analysis",
+      "fields": [
+        "file_structure",
+        "language_distribution",
+        "code_complexity",
+        "documentation_coverage",
+        "test_coverage"
+      ]
+    },
+    "dependencies": {
+      "description": "Project dependencies and versions",
+      "fields": [
+        "package_managers",
+        "dependency_list",
+        "outdated_dependencies",
+        "security_vulnerabilities"
+      ]
+    },
+    "documentation": {
+      "description": "Documentation analysis and coverage",
+      "fields": [
+        "readme_quality",
+        "api_documentation",
+        "code_comments",
+        "wikis",
+        "external_docs"
+      ]
+    },
+    "activity": {
+      "description": "Repository activity and maintenance",
+      "fields": [
+        "commit_frequency",
+        "contributor_count",
+        "open_issues",
+        "pull_requests",
+        "last_updated"
+      ]
+    }
+  },
+  "bulk_operations": {
+    "supported": true,
+    "operations": [
+      "catalog_all_repos",
+      "analyze_all_repos",
+      "generate_documentation",
+      "create_diagrams",
+      "index_repositories",
+      "search_across_repos",
+      "refactor_analysis"
+    ],
+    "batch_size": 10,
+    "parallel_enabled": false,
+    "error_handling": "continue_on_error"
+  },
+  "safety_constraints": {
+    "respect_rate_limits": true,
+    "require_authentication": true,
+    "validate_permissions": true,
+    "no_destructive_operations": true,
+    "cache_api_responses": true,
+    "max_api_calls_per_minute": 60
+  },
+  "memory_management": {
+    "max_cache_size_mb": 1024,
+    "cache_expiration_hours": 24,
+    "auto_cleanup": true,
+    "persistent_storage": true
+  },
+  "error_handling": {
+    "retry_on_failure": true,
+    "max_retries": 3,
+    "fallback_strategies": [
+      "use_cached_data",
+      "skip_and_continue",
+      "partial_results"
+    ],
+    "error_reporting": "detailed"
+  },
+  "monitoring": {
+    "log_level": "info",
+    "metrics_collection": true,
+    "performance_tracking": true,
+    "api_usage_tracking": true,
+    "audit_trail": true
+  },
+  "custom_prompts": {
+    "analyze_repository": "Perform a comprehensive analysis of the GitHub repository '{repo}' including code structure, dependencies, documentation, and activity metrics.",
+    "catalog_account": "Create a complete catalog of all repositories for GitHub account '{username}', including metadata, languages, and statistics.",
+    "generate_documentation": "Generate comprehensive documentation for repository '{repo}' including README analysis, code structure, API documentation, and usage examples.",
+    "bulk_analysis": "Analyze all {count} repositories for account '{username}' and generate summary reports with insights and recommendations."
+  },
+  "integration_points": {
+    "apis": [
+      "github_api",
+      "github_graphql"
+    ],
+    "tools": [
+      "git",
+      "code_analyzers",
+      "diagram_generators"
+    ],
+    "outputs": [
+      "markdown_files",
+      "json_reports",
+      "csv_catalogs",
+      "mermaid_diagrams"
+    ]
+  },
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2025-12-23",
+      "changes": "Initial release with comprehensive GitHub analysis capabilities"
+    }
+  ],
+  "maintenance": {
+    "last_updated": "2025-12-23",
+    "next_review": "2026-01-23",
+    "update_frequency": "monthly"
+  }
+}

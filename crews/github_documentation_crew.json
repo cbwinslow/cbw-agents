@@ -1,0 +1,329 @@
+{
+  "crew_name": "GitHub Documentation Crew",
+  "crew_version": "1.0.0",
+  "description": "Multi-agent crew for comprehensive GitHub account documentation, cataloging, and analysis",
+  "purpose": "Analyze GitHub accounts and repositories to generate comprehensive documentation, catalogs, diagrams, and organizational summaries",
+  "agents": [
+    {
+      "role": "Repository Cataloger",
+      "agent_type": "github_analysis_agent",
+      "responsibilities": [
+        "List all repositories in the account",
+        "Extract repository metadata",
+        "Categorize repositories by type and language",
+        "Create structured catalog"
+      ],
+      "tools": [
+        "github_operations",
+        "data_processing",
+        "file_operations"
+      ],
+      "goals": [
+        "Complete repository inventory",
+        "Accurate metadata collection",
+        "Organized categorization",
+        "Exportable catalog format"
+      ],
+      "backstory": "You are a meticulous cataloger with expertise in organizing and structuring large amounts of repository data. You ensure every repository is properly documented and categorized.",
+      "configuration": {
+        "catalog_format": "structured_json",
+        "include_private": true,
+        "include_archived": true,
+        "metadata_depth": "comprehensive"
+      }
+    },
+    {
+      "role": "Code Analyzer",
+      "agent_type": "github_analysis_agent",
+      "responsibilities": [
+        "Analyze code structure and patterns",
+        "Detect programming languages and frameworks",
+        "Evaluate code quality metrics",
+        "Identify dependencies and technologies"
+      ],
+      "tools": [
+        "github_operations",
+        "code_analysis",
+        "data_processing"
+      ],
+      "goals": [
+        "Comprehensive code analysis",
+        "Technology stack identification",
+        "Code quality assessment",
+        "Dependency mapping"
+      ],
+      "backstory": "You are an expert code analyst with deep knowledge of multiple programming languages and frameworks. You can quickly identify patterns, technologies, and code quality indicators.",
+      "configuration": {
+        "analysis_depth": "deep",
+        "language_detection": "automatic",
+        "quality_metrics": true,
+        "dependency_analysis": true
+      }
+    },
+    {
+      "role": "Documentation Generator",
+      "agent_type": "github_analysis_agent",
+      "responsibilities": [
+        "Generate README files for undocumented repos",
+        "Create API documentation",
+        "Write usage guides and examples",
+        "Generate architecture documentation"
+      ],
+      "tools": [
+        "github_operations",
+        "file_operations",
+        "web_operations"
+      ],
+      "goals": [
+        "Comprehensive documentation coverage",
+        "Clear and accurate documentation",
+        "Consistent documentation style",
+        "Useful examples and guides"
+      ],
+      "backstory": "You are a skilled technical writer who creates clear, comprehensive documentation. You understand how to explain complex technical concepts in an accessible way.",
+      "configuration": {
+        "documentation_style": "technical",
+        "include_examples": true,
+        "generate_diagrams": true,
+        "auto_format": true
+      }
+    },
+    {
+      "role": "Diagram Creator",
+      "agent_type": "github_analysis_agent",
+      "responsibilities": [
+        "Create architecture diagrams",
+        "Generate dependency graphs",
+        "Visualize repository relationships",
+        "Create file structure diagrams"
+      ],
+      "tools": [
+        "github_operations",
+        "data_processing",
+        "file_operations"
+      ],
+      "goals": [
+        "Clear visual representations",
+        "Accurate architectural diagrams",
+        "Useful dependency visualizations",
+        "Multiple diagram formats"
+      ],
+      "backstory": "You are an expert at creating clear, informative diagrams that help developers understand complex systems. You use Mermaid, PlantUML, and other diagramming tools.",
+      "configuration": {
+        "diagram_format": "mermaid",
+        "include_legends": true,
+        "auto_layout": true,
+        "detail_level": "comprehensive"
+      }
+    },
+    {
+      "role": "Repository Indexer",
+      "agent_type": "github_analysis_agent",
+      "responsibilities": [
+        "Create searchable index of all repositories",
+        "Index file contents and code",
+        "Build cross-reference maps",
+        "Generate search databases"
+      ],
+      "tools": [
+        "github_operations",
+        "data_processing",
+        "file_operations"
+      ],
+      "goals": [
+        "Comprehensive searchable index",
+        "Fast search capabilities",
+        "Cross-repository references",
+        "Maintained index database"
+      ],
+      "backstory": "You are an indexing specialist who creates efficient, searchable databases of code and documentation. You understand information retrieval and search optimization.",
+      "configuration": {
+        "index_type": "full_text",
+        "include_code": true,
+        "include_comments": true,
+        "cross_reference": true
+      }
+    },
+    {
+      "role": "Summary Reviewer",
+      "agent_type": "github_analysis_agent",
+      "responsibilities": [
+        "Review all generated documentation",
+        "Create executive summaries",
+        "Identify patterns and insights",
+        "Generate recommendations"
+      ],
+      "tools": [
+        "github_operations",
+        "data_processing"
+      ],
+      "goals": [
+        "High-quality summaries",
+        "Actionable insights",
+        "Clear recommendations",
+        "Comprehensive overview"
+      ],
+      "backstory": "You are a senior analyst who excels at synthesizing large amounts of information into clear, actionable summaries and recommendations.",
+      "configuration": {
+        "summary_style": "executive",
+        "include_metrics": true,
+        "include_recommendations": true,
+        "highlight_insights": true
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "task_name": "Repository Discovery and Cataloging",
+      "description": "Discover all repositories in the GitHub account and create a comprehensive catalog with metadata",
+      "agent": "Repository Cataloger",
+      "expected_output": "Complete catalog of all repositories in JSON and CSV formats",
+      "dependencies": [],
+      "priority": "critical"
+    },
+    {
+      "task_name": "Code Analysis and Technology Stack Identification",
+      "description": "Analyze code in all repositories to identify languages, frameworks, and technologies used",
+      "agent": "Code Analyzer",
+      "expected_output": "Technology stack analysis report with language distributions and framework usage",
+      "dependencies": ["Repository Discovery and Cataloging"],
+      "priority": "high"
+    },
+    {
+      "task_name": "Repository Indexing",
+      "description": "Create searchable index of all code, documentation, and files across repositories",
+      "agent": "Repository Indexer",
+      "expected_output": "Searchable index database with cross-references",
+      "dependencies": ["Repository Discovery and Cataloging"],
+      "priority": "high"
+    },
+    {
+      "task_name": "Documentation Generation",
+      "description": "Generate comprehensive documentation for all repositories including READMEs, API docs, and guides",
+      "agent": "Documentation Generator",
+      "expected_output": "Complete documentation set for all repositories",
+      "dependencies": ["Code Analysis and Technology Stack Identification"],
+      "priority": "high"
+    },
+    {
+      "task_name": "Diagram Creation",
+      "description": "Create architectural diagrams, dependency graphs, and visualizations for all repositories",
+      "agent": "Diagram Creator",
+      "expected_output": "Set of diagrams in Mermaid and other formats for each repository",
+      "dependencies": ["Code Analysis and Technology Stack Identification"],
+      "priority": "medium"
+    },
+    {
+      "task_name": "Summary and Insights Generation",
+      "description": "Review all outputs and generate executive summary with insights and recommendations",
+      "agent": "Summary Reviewer",
+      "expected_output": "Executive summary report with key metrics, insights, and recommendations",
+      "dependencies": [
+        "Documentation Generation",
+        "Diagram Creation",
+        "Repository Indexing"
+      ],
+      "priority": "high"
+    }
+  ],
+  "process": {
+    "type": "hierarchical",
+    "manager_agent": "Repository Cataloger",
+    "execution_order": "sequential",
+    "max_rpm": 60,
+    "share_crew": true,
+    "verbose": true
+  },
+  "collaboration": {
+    "communication_protocol": "structured",
+    "information_sharing": "full",
+    "decision_making": "manager_led",
+    "conflict_resolution": "manager_decides"
+  },
+  "quality_control": {
+    "review_points": [
+      "after_cataloging",
+      "after_analysis",
+      "after_documentation",
+      "before_final_output"
+    ],
+    "quality_metrics": [
+      "catalog_completeness",
+      "analysis_accuracy",
+      "documentation_quality",
+      "diagram_clarity"
+    ],
+    "minimum_quality_score": 0.85
+  },
+  "output_format": {
+    "default": "comprehensive_package",
+    "outputs": [
+      "repository_catalog.json",
+      "repository_catalog.csv",
+      "technology_analysis.md",
+      "documentation_bundle/",
+      "diagrams/",
+      "search_index.db",
+      "executive_summary.md",
+      "recommendations.md"
+    ],
+    "formats": ["json", "csv", "markdown", "html", "mermaid"]
+  },
+  "tools_and_resources": {
+    "shared_tools": [
+      "github_operations",
+      "file_operations",
+      "data_processing",
+      "code_analysis"
+    ],
+    "external_apis": [
+      "github_rest_api",
+      "github_graphql_api"
+    ],
+    "databases": [
+      "repository_cache",
+      "analysis_results",
+      "search_index"
+    ]
+  },
+  "performance_metrics": {
+    "success_criteria": [
+      "all_repos_cataloged",
+      "comprehensive_analysis",
+      "complete_documentation",
+      "useful_diagrams"
+    ],
+    "efficiency_metrics": [
+      "processing_time",
+      "api_calls_used",
+      "storage_used",
+      "completeness_rate"
+    ],
+    "quality_indicators": [
+      "documentation_coverage",
+      "diagram_accuracy",
+      "index_completeness",
+      "insight_quality"
+    ]
+  },
+  "safety_constraints": {
+    "respect_rate_limits": true,
+    "require_authentication": true,
+    "no_destructive_operations": true,
+    "privacy_protection": "strict",
+    "cache_api_responses": true
+  },
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2025-12-23",
+      "changes": "Initial release with comprehensive GitHub documentation capabilities"
+    }
+  ],
+  "maintenance": {
+    "last_updated": "2025-12-23",
+    "next_review": "2026-01-23",
+    "update_frequency": "monthly",
+    "performance_monitoring": "continuous"
+  }
+}
