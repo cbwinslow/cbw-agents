@@ -2,6 +2,10 @@
 
 Comprehensive collection of AI agent configurations, tools, and rules for building intelligent automation systems.
 
+**🎉 MAJOR EXPANSION: 169 Tools | 133 Agents | 17 Crews | Advanced Systems**
+
+> This repository now contains a production-ready multi-agent framework with advanced capabilities for autonomous operation, democratic decision-making, continuous learning, and team collaboration. See [EXPANSION_SUMMARY.md](EXPANSION_SUMMARY.md) for details.
+
 ## 📁 Repository Structure
 
 ```
@@ -73,24 +77,49 @@ cbw-agents/
 
 ## 🛠️ Components
 
-### 🔧 Tools (4 Available)
-- **File Operations**: Comprehensive file system operations with safety features
-- **Web Operations**: Web scraping, API calls, and data extraction
-- **Data Processing**: Data analysis, cleaning, and transformation
-- **Code Analysis**: Static code analysis and security scanning
+### 🔧 Tools (169 Available)
+**10 Specialized Categories:**
+- **Knowledge Management** (15): Knowledge graphs, hierarchical memory, semantic search
+- **Testing & QA** (15): Test automation, security scanning, performance testing
+- **Monitoring & Operations** (15): 24/7 monitoring, health checks, incident response
+- **Task Management** (14): Scheduling, prioritization, workflow orchestration
+- **Communication** (15): A2A protocol, message brokering, collaboration
+- **Learning & Adaptation** (15): Skill tracking, performance analysis, improvement
+- **Decision Support** (15): Multi-criteria decision making, risk assessment
+- **Data Intelligence** (15): Pattern recognition, trend forecasting, analysis
+- **Resource Management** (15): Allocation, budgeting, optimization
+- **Security & Compliance** (15): Access control, threat detection, encryption
 
-### 🎯 Toolsets (2 Available)
-- **Web Research**: Combined web research and data extraction workflow
-- **Code Development**: Comprehensive code analysis and development workflow
+### 🤖 Agents (133 Available)
+**10 Agent Categories:**
+- **Specialized Domain** (20): ML engineers, security analysts, developers
+- **Team Players** (20): Scrum masters, mentors, facilitators
+- **Task Management** (15): Planners, coordinators, trackers
+- **Democratic Voting** (10): Vote coordinators, consensus builders
+- **Memory Organization** (10): Curators, organizers, indexers
+- **Testing & Monitoring** (15): QA, performance monitors, SRE agents
+- **Self-Improvement** (5): Learning agents, skill developers
+- **Research & Analysis** (10): Researchers, analysts, reviewers
+- **Communication** (10): Writers, translators, documenters
+- **Innovation** (10): Innovators, designers, prototypers
 
-### 🤖 Agents (3 Available)
-- **Web Research Agent**: Specialized for online research and source validation
-- **Code Analysis Agent**: Security auditing and code quality assessment
-- **Data Processing Agent**: Data analysis and statistical processing
+### 👥 Crews (17 Available)
+**Diverse Team Structures:**
+- **Hierarchical Teams**: Development, Security Audit, ML Engineering
+- **Democratic Teams**: Research, Consensus Decision Making
+- **Agile Teams**: Scrum, Innovation Lab
+- **24/7 Teams**: Incident Response, Monitoring
+- **Autonomous Teams**: Self-Managing Operations
+- **Specialized Teams**: DevOps, Data Engineering, Documentation, QA, Knowledge Management
 
-### 👥 Crews (2 Available)
-- **Research Analysis Crew**: Multi-agent research and analysis team
-- **Software Development Crew**: Code analysis and quality assurance team
+### 🚀 Advanced Systems (New!)
+**Sophisticated Algorithms & Frameworks:**
+- **Continuous Agent Runtime**: 24/7 operation with auto-recovery
+- **Democratic Voting Engine**: Multiple voting methods and consensus
+- **Self-Learning Engine**: Autonomous learning and improvement
+- **Hierarchical Memory System**: Multi-level memory architecture
+- **A2A Protocol**: Agent-to-agent communication
+- **Knowledge Base Management**: Adaptive knowledge systems
 
 ### 🔌 MCP Servers (2 Available)
 - **File Operations Server**: MCP interface for file system operations
@@ -113,7 +142,74 @@ This repository contains configurations and guidelines for AI agent development.
 - [MCP Gateway](../mcp-gateway) - MCP server management
 - [Agent Configurations](../mcp) - Additional agent setups
 
+## 📊 System Capabilities
+
+### Autonomous Operation
+- 24/7 continuous runtime with health monitoring
+- Automatic recovery and self-healing
+- Resource management and optimization
+- Graceful degradation
+
+### Democratic Decision Making
+- Multiple voting strategies (Simple, Supermajority, Ranked Choice, etc.)
+- Vote delegation and liquid democracy
+- Consensus building protocols
+- Proposal lifecycle management
+
+### Memory & Knowledge
+- Hierarchical memory (5 levels: Working → Short-term → Long-term → Semantic → Episodic)
+- Knowledge graphs with relationship tracking
+- Semantic search and indexing
+- Memory consolidation and organization
+
+### Self-Improvement
+- Experience-based learning
+- Skill acquisition and tracking
+- Performance analysis and optimization
+- Continuous feedback loops
+
+### Team Collaboration
+- Multiple team structures (Hierarchical, Democratic, Agile, Autonomous)
+- Agent-to-agent communication protocol
+- Task coordination and delegation
+- Knowledge sharing and synthesis
+
+## 🚀 Quick Start Examples
+
+### Creating an Autonomous Self-Managing Team
+```python
+from advanced.continuous_agent_runtime import ContinuousAgentRuntime
+from advanced.democratic_voting_engine import DemocraticVotingEngine
+from advanced.self_learning_engine import SelfLearningEngine
+
+runtime = ContinuousAgentRuntime("team-001")
+voting = DemocraticVotingEngine()
+learning = SelfLearningEngine("team-001")
+
+def team_work():
+    # Execute tasks, make decisions, learn
+    pass
+
+runtime.start(team_work)
+```
+
+### Using Knowledge Management
+```python
+from tools.knowledge_graph import KnowledgeGraphTool
+from tools.hierarchical_memory import HierarchicalMemoryTool
+
+kg = KnowledgeGraphTool()
+memory = HierarchicalMemoryTool()
+
+# Build and query knowledge
+kg.add_entity("Python", "language")
+memory.store_memory("Python is versatile", level="semantic")
+results = memory.retrieve_memory(level="semantic", context="programming")
+```
+
 ---
 
-**Last Updated**: 2025-11-12
+**Last Updated**: 2025-12-23
+**Version**: 2.0.0 (Major Expansion)
 **Maintainer**: CBW Development Team
+**Total Components**: 320+
