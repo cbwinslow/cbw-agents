@@ -280,7 +280,6 @@ def main():
     parser.add_argument(
         "--include-file-structure",
         action="store_true",
-        default=True,
         help="Include file structure documentation"
     )
     parser.add_argument(
@@ -290,6 +289,10 @@ def main():
     )
     
     args = parser.parse_args()
+    
+    # Default to including file structure if not specified
+    if not hasattr(args, 'include_file_structure') or args.include_file_structure is None:
+        args.include_file_structure = True
     
     # Initialize tool
     tool = GitHubOperationsTool()

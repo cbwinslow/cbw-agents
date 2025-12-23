@@ -79,8 +79,9 @@ def analyze_activity(repos: List[Dict]) -> Dict[str, Any]:
         updated_by_year[updated.year] += 1
         
         # Activity status (updated in last 6 months)
-        months_since_update = (dt.now().replace(tzinfo=created.tzinfo) - updated).days / 30
-        if months_since_update < 6:
+        # Using approximate 30-day month calculation
+        days_since_update = (dt.now().replace(tzinfo=created.tzinfo) - updated).days
+        if days_since_update < 180:  # ~6 months
             active_repos += 1
         else:
             inactive_repos += 1

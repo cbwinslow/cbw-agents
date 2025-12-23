@@ -21,6 +21,7 @@ Safety Features:
 - Content caching
 """
 
+import base64
 import json
 import os
 import time
@@ -314,7 +315,6 @@ class GitHubOperationsTool:
                 "error": "Path is a directory, not a file"
             }
         
-        import base64
         try:
             content = base64.b64decode(result["data"]["content"]).decode("utf-8")
             return {
@@ -471,24 +471,31 @@ class GitHubOperationsTool:
         Args:
             owner: Repository owner
             repo: Repository name
-            tree_sha: Tree SHA or branch name
+            tree_sha: Tree SHA or branch name (default: HEAD for default branch)
             recursive: Get full tree recursively
             
         Returns:
             Dictionary with tree structure
         """
-        # First get the branch to get the tree SHA
+        # Get default branch if HEAD is specified
         if tree_sha == "HEAD":
-            branch_result = self._make_request("GET", f"/repos/{owner}/{repo}/branches/main")
-            if not branch_result["success"]:
-                branch_result = self._make_request("GET", f"/repos/{owner}/{repo}/branches/master")
+            # Get repository info to find default branch
+            repo_info = self.get_repo_info(owner, repo)
+            if not repo_info["success"]:
+                return {
+                    "success": False,
+                    "error": "Could not determine default branch"
+                }
+            
+            default_branch = repo_info["data"].get("default_branch", "main")
+            branch_result = self._make_request("GET", f"/repos/{owner}/{repo}/branches/{default_branch}")
             
             if branch_result["success"]:
                 tree_sha = branch_result["data"]["commit"]["commit"]["tree"]["sha"]
             else:
                 return {
                     "success": False,
-                    "error": "Could not determine tree SHA"
+                    "error": f"Could not get tree SHA for branch '{default_branch}'"
                 }
         
         endpoint = f"/repos/{owner}/{repo}/git/trees/{tree_sha}"
@@ -529,7 +536,6 @@ class GitHubOperationsTool:
         if not result["success"]:
             return result
         
-        import base64
         try:
             content = base64.b64decode(result["data"]["content"]).decode("utf-8")
             return {
