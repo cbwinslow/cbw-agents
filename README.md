@@ -22,24 +22,32 @@ cbw-agents/
 │   ├── file_operations.py   # File system operations tool
 │   ├── web_operations.py    # Web scraping and API tool
 │   ├── data_processing.py   # Data analysis and processing tool
-│   └── code_analysis.py    # Static code analysis tool
+│   ├── code_analysis.py     # Static code analysis tool
+│   └── github_operations.py # GitHub API operations tool
 ├── toolsets/                 # Combined toolsets for specific workflows
 │   ├── README.md            # Toolsets documentation
 │   ├── web_research.py      # Web research toolset
-│   └── code_development.py # Code development toolset
+│   └── code_development.py  # Code development toolset
 ├── agents/                   # Individual agent configurations
 │   ├── README.md            # Agent documentation
 │   ├── web_research_agent.json
 │   ├── code_analysis_agent.json
-│   └── data_processing_agent.json
+│   ├── data_processing_agent.json
+│   └── github_analysis_agent.json
 ├── crews/                    # CrewAI crew configurations
 │   ├── README.md            # Crew documentation
 │   ├── research_analysis_crew.json
-│   └── software_development_crew.json
+│   ├── software_development_crew.json
+│   └── github_documentation_crew.json
+├── scripts/                  # Automation and utility scripts
+│   ├── github_catalog_repos.py     # Repository cataloging
+│   ├── github_analyze_account.py   # Account analysis
+│   └── github_generate_docs.py     # Documentation generation
 ├── mcp-servers/              # MCP server configurations
 │   ├── README.md            # MCP server documentation
 │   ├── file_operations_server.json
 │   └── web_operations_server.json
+├── GITHUB_TOOLS_README.md    # GitHub tools comprehensive guide
 └── docs/                     # Additional documentation
 ```
 
@@ -73,28 +81,65 @@ cbw-agents/
 
 ## 🛠️ Components
 
-### 🔧 Tools (4 Available)
+### 🔧 Tools (5 Available)
 - **File Operations**: Comprehensive file system operations with safety features
 - **Web Operations**: Web scraping, API calls, and data extraction
 - **Data Processing**: Data analysis, cleaning, and transformation
 - **Code Analysis**: Static code analysis and security scanning
+- **GitHub Operations**: GitHub API operations for repository analysis and bulk actions
 
 ### 🎯 Toolsets (2 Available)
 - **Web Research**: Combined web research and data extraction workflow
 - **Code Development**: Comprehensive code analysis and development workflow
 
-### 🤖 Agents (3 Available)
+### 🤖 Agents (4 Available)
 - **Web Research Agent**: Specialized for online research and source validation
 - **Code Analysis Agent**: Security auditing and code quality assessment
 - **Data Processing Agent**: Data analysis and statistical processing
+- **GitHub Analysis Agent**: Comprehensive GitHub repository and account analysis
 
-### 👥 Crews (2 Available)
+### 👥 Crews (3 Available)
 - **Research Analysis Crew**: Multi-agent research and analysis team
 - **Software Development Crew**: Code analysis and quality assurance team
+- **GitHub Documentation Crew**: Multi-agent GitHub documentation and cataloging team
 
 ### 🔌 MCP Servers (2 Available)
 - **File Operations Server**: MCP interface for file system operations
 - **Web Operations Server**: MCP interface for web operations and scraping
+
+## 🐙 GitHub API Tools
+
+Comprehensive suite of tools for GitHub repository analysis and management. See [GITHUB_TOOLS_README.md](GITHUB_TOOLS_README.md) for detailed documentation.
+
+### Features
+- **Repository Cataloging**: Create comprehensive catalogs in JSON, CSV, Markdown, and HTML
+- **Account Analysis**: Deep analysis with metrics, insights, and recommendations
+- **Bulk Documentation**: Auto-generate documentation for all repositories
+- **Code Search**: Search across repositories with powerful queries
+- **Language Analysis**: Analyze technology stack and language usage
+- **Diagram Generation**: Create architecture diagrams with Mermaid
+
+### Quick Start
+```bash
+# Set your GitHub token
+export GITHUB_TOKEN="your_token_here"
+
+# Catalog repositories
+python scripts/github_catalog_repos.py USERNAME --format all
+
+# Analyze account
+python scripts/github_analyze_account.py USERNAME
+
+# Generate documentation
+python scripts/github_generate_docs.py USERNAME --include-diagrams
+```
+
+### Available Scripts
+- **`scripts/github_catalog_repos.py`**: Create repository catalogs
+- **`scripts/github_analyze_account.py`**: Comprehensive account analysis
+- **`scripts/github_generate_docs.py`**: Bulk documentation generator
+
+For complete documentation, usage examples, and API reference, see [GITHUB_TOOLS_README.md](GITHUB_TOOLS_README.md).
 
 ## 🤝 Contributing
 
@@ -115,5 +160,5 @@ This repository contains configurations and guidelines for AI agent development.
 
 ---
 
-**Last Updated**: 2025-11-12
+**Last Updated**: 2025-12-23
 **Maintainer**: CBW Development Team
