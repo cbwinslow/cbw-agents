@@ -1,0 +1,186 @@
+{
+  "agent_name": "OpenRouter AI Agent",
+  "agent_type": "ai_model_manager",
+  "version": "1.0.0",
+  "description": "Specialized agent for managing OpenRouter API interactions with focus on free models, chat completions, and model discovery",
+  "capabilities": [
+    "model_discovery",
+    "free_model_filtering",
+    "chat_completion",
+    "streaming_responses",
+    "conversation_management",
+    "token_estimation",
+    "cost_calculation",
+    "model_recommendations"
+  ],
+  "tools": [
+    "openrouter_sdk"
+  ],
+  "configuration": {
+    "timeout_seconds": 120,
+    "max_retries": 3,
+    "retry_delay_seconds": 2,
+    "default_model": "meta-llama/llama-3.1-8b-instruct:free",
+    "cache_models_ttl_seconds": 3600,
+    "prefer_free_models": true
+  },
+  "behavior": {
+    "approach": "efficient",
+    "model_selection": "smart",
+    "response_style": "helpful",
+    "cost_awareness": "high"
+  },
+  "output_format": {
+    "default": "structured_json",
+    "alternatives": [
+      "text_content",
+      "streaming_chunks",
+      "conversation_history"
+    ]
+  },
+  "safety_constraints": {
+    "validate_api_key": true,
+    "rate_limit_aware": true,
+    "timeout_enforcement": true,
+    "retry_with_backoff": true,
+    "secure_api_calls": true
+  },
+  "memory_management": {
+    "conversation_history": true,
+    "max_history_messages": 50,
+    "model_cache": true,
+    "auto_clear_history": false
+  },
+  "error_handling": {
+    "retry_on_failure": true,
+    "max_retries": 3,
+    "fallback_strategies": [
+      "try_alternative_model",
+      "reduce_temperature",
+      "retry_with_delay"
+    ],
+    "error_reporting": "detailed"
+  },
+  "custom_prompts": {
+    "chat": "Using {model}, respond to: {message}",
+    "recommend": "Find the best free OpenRouter model for {use_case}",
+    "analyze": "Analyze model {model_id} and provide capabilities and pricing information"
+  },
+  "use_cases": [
+    {
+      "name": "general_chat",
+      "description": "General purpose conversational AI",
+      "recommended_model": "meta-llama/llama-3.1-8b-instruct:free",
+      "parameters": {
+        "temperature": 0.7,
+        "max_tokens": 1000
+      }
+    },
+    {
+      "name": "code_generation",
+      "description": "Code writing and technical assistance",
+      "recommended_model": "google/gemma-2-9b-it:free",
+      "parameters": {
+        "temperature": 0.3,
+        "max_tokens": 2000
+      }
+    },
+    {
+      "name": "reasoning",
+      "description": "Complex reasoning and problem solving",
+      "recommended_model": "microsoft/phi-4:free",
+      "parameters": {
+        "temperature": 0.5,
+        "max_tokens": 1500
+      }
+    },
+    {
+      "name": "multimodal",
+      "description": "Text and image understanding",
+      "recommended_model": "meta-llama/llama-3.2-11b-vision-instruct:free",
+      "parameters": {
+        "temperature": 0.7,
+        "max_tokens": 1000
+      }
+    }
+  ],
+  "free_models_priority": [
+    "meta-llama/llama-3.1-8b-instruct:free",
+    "google/gemma-2-9b-it:free",
+    "microsoft/phi-4:free",
+    "meta-llama/llama-3.2-11b-vision-instruct:free"
+  ],
+  "integration_points": {
+    "compatible_frameworks": [
+      "openai",
+      "langchain",
+      "crewai",
+      "autogen"
+    ],
+    "apis": [
+      "openrouter"
+    ],
+    "databases": []
+  },
+  "openai_function_definitions": [
+    {
+      "name": "list_openrouter_models",
+      "description": "List available OpenRouter models with optional filtering by pricing tier",
+      "enabled": true
+    },
+    {
+      "name": "get_free_models",
+      "description": "Get list of free OpenRouter models",
+      "enabled": true
+    },
+    {
+      "name": "find_model",
+      "description": "Search for OpenRouter models by name or ID",
+      "enabled": true
+    },
+    {
+      "name": "chat_completion",
+      "description": "Create a chat completion using OpenRouter",
+      "enabled": true
+    },
+    {
+      "name": "estimate_tokens",
+      "description": "Estimate token count for text",
+      "enabled": true
+    },
+    {
+      "name": "get_recommended_model",
+      "description": "Get recommended free model for specific use case",
+      "enabled": true
+    }
+  ],
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2024-12-27",
+      "changes": "Initial release with comprehensive OpenRouter SDK integration"
+    }
+  ],
+  "maintenance": {
+    "last_updated": "2024-12-27",
+    "next_review": "2025-01-27",
+    "update_frequency": "monthly"
+  },
+  "openai_config": {
+    "model_recommendations": [
+      "gpt-4-turbo-preview",
+      "gpt-4",
+      "gpt-3.5-turbo"
+    ],
+    "temperature": 0.7,
+    "max_tokens": 2000,
+    "function_calling": true
+  },
+  "notes": [
+    "Prioritizes free models to minimize costs",
+    "Includes built-in model recommendations for different use cases",
+    "Supports streaming for real-time responses",
+    "Maintains conversation history for context-aware interactions",
+    "Provides utility functions for token estimation and cost calculation"
+  ]
+}
