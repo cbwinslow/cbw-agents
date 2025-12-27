@@ -196,19 +196,11 @@ class OpenRouterModels:
             self._models_cache = models
             self._cache_time = time.time()
         
-        # Filter by tier
+        # Filter by tier using utility method for consistency
         if tier == ModelTier.FREE:
-            filtered = [
-                m for m in models 
-                if m.get("pricing", {}).get("prompt", "0") == "0" 
-                and m.get("pricing", {}).get("completion", "0") == "0"
-            ]
+            filtered = [m for m in models if OpenRouterUtilities.is_free_model(m)]
         elif tier == ModelTier.PAID:
-            filtered = [
-                m for m in models 
-                if m.get("pricing", {}).get("prompt", "0") != "0" 
-                or m.get("pricing", {}).get("completion", "0") != "0"
-            ]
+            filtered = [m for m in models if not OpenRouterUtilities.is_free_model(m)]
         else:
             filtered = models
         
@@ -626,9 +618,25 @@ class OpenRouterUtilities:
         }
     
     @staticmethod
-    def format_streaming_output(iterator: Iterator[str], prefix: str = "") -> str:
+    def collect_streaming_output(iterator: Iterator[str]) -> str:
         """
-        Format streaming output into a single string.
+        Collect streaming output into a single string without printing.
+        
+        Args:
+            iterator: Stream iterator
+            
+        Returns:
+            Combined output string
+        """
+        output = []
+        for chunk in iterator:
+            output.append(chunk)
+        return "".join(output)
+    
+    @staticmethod
+    def print_streaming_output(iterator: Iterator[str], prefix: str = "") -> str:
+        """
+        Print and collect streaming output in real-time.
         
         Args:
             iterator: Stream iterator

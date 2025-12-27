@@ -209,8 +209,11 @@ cost = utils.calculate_cost(
     completion_price=0.0
 )
 
-# Format streaming output
-output = utils.format_streaming_output(stream_iterator, prefix="Bot: ")
+# Collect streaming output without printing
+output = utils.collect_streaming_output(stream_iterator)
+
+# Or print and collect streaming output
+output = utils.print_streaming_output(stream_iterator, prefix="Bot: ")
 
 # Validate model ID
 is_valid = utils.validate_model_id("meta-llama/llama-3.1-8b-instruct:free")
@@ -227,7 +230,8 @@ error = utils.get_error_message(response)
 - `format_messages(...)`: Format message list
 - `extract_content(response)`: Extract text from response
 - `calculate_cost(...)`: Calculate API cost
-- `format_streaming_output(...)`: Format stream to string
+- `collect_streaming_output(iterator)`: Collect stream to string (no printing)
+- `print_streaming_output(iterator, prefix)`: Print and collect stream to string
 - `validate_model_id(model_id)`: Validate model ID format
 - `is_free_model(model_info)`: Check if model is free
 - `get_error_message(response)`: Extract error message

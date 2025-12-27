@@ -149,7 +149,7 @@ def example_streaming_chat():
             ]
         )
         
-        output = OpenRouterUtilities.format_streaming_output(stream)
+        output = OpenRouterUtilities.print_streaming_output(stream)
         print(f"\n   ✓ Streamed {len(output)} characters")
     except Exception as e:
         print(f"\n   ✗ Error: {e}")
