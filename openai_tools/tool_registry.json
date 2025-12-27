@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
   "description": "OpenAI-compatible tool registry for CBW Agents - Multi-Agent Democratic Systems",
-  "last_updated": "2025-12-08",
+  "last_updated": "2024-12-27",
   "categories": {
     "web_operations": {
       "description": "Tools for web browsing, scraping, and content extraction",
@@ -60,6 +60,12 @@
       "tools": [
         "task_decomposer"
       ]
+    },
+    "ai_models": {
+      "description": "Tools for AI model management and operations",
+      "tools": [
+        "openrouter_sdk"
+      ]
     }
   },
   "tools": {
@@ -79,7 +85,11 @@
         "get_page_structure",
         "get_history"
       ],
-      "requirements": ["requests", "beautifulsoup4", "lxml"],
+      "requirements": [
+        "requests",
+        "beautifulsoup4",
+        "lxml"
+      ],
       "use_cases": [
         "web_navigation",
         "content_extraction",
@@ -103,7 +113,11 @@
         "list_downloads",
         "delete_download"
       ],
-      "requirements": ["requests", "pathlib", "hashlib"],
+      "requirements": [
+        "requests",
+        "pathlib",
+        "hashlib"
+      ],
       "use_cases": [
         "file_downloading",
         "batch_downloads",
@@ -125,7 +139,11 @@
         "convert_to_file",
         "batch_convert"
       ],
-      "requirements": ["requests", "beautifulsoup4", "html2text"],
+      "requirements": [
+        "requests",
+        "beautifulsoup4",
+        "html2text"
+      ],
       "use_cases": [
         "content_conversion",
         "documentation_generation",
@@ -149,7 +167,11 @@
         "get_all_tags",
         "export_bookmarks"
       ],
-      "requirements": ["sqlite3", "pathlib", "json"],
+      "requirements": [
+        "sqlite3",
+        "pathlib",
+        "json"
+      ],
       "use_cases": [
         "bookmark_organization",
         "research_management",
@@ -171,7 +193,10 @@
         "batch_analyze",
         "get_thumbnail"
       ],
-      "requirements": ["Pillow", "requests"],
+      "requirements": [
+        "Pillow",
+        "requests"
+      ],
       "use_cases": [
         "image_analysis",
         "metadata_extraction",
@@ -193,7 +218,11 @@
         "get_price_history",
         "get_price_alerts"
       ],
-      "requirements": ["requests", "beautifulsoup4", "sqlite3"],
+      "requirements": [
+        "requests",
+        "beautifulsoup4",
+        "sqlite3"
+      ],
       "use_cases": [
         "price_tracking",
         "market_analysis",
@@ -215,7 +244,11 @@
         "find_broken_links",
         "extract_emails"
       ],
-      "requirements": ["requests", "beautifulsoup4", "lxml"],
+      "requirements": [
+        "requests",
+        "beautifulsoup4",
+        "lxml"
+      ],
       "use_cases": [
         "site_mapping",
         "content_discovery",
@@ -239,7 +272,11 @@
         "dns_lookup",
         "test_connection"
       ],
-      "requirements": ["socket", "subprocess", "platform"],
+      "requirements": [
+        "socket",
+        "subprocess",
+        "platform"
+      ],
       "use_cases": [
         "connectivity_testing",
         "network_diagnostics",
@@ -265,7 +302,10 @@
         "check_processes",
         "health_check"
       ],
-      "requirements": ["psutil", "platform"],
+      "requirements": [
+        "psutil",
+        "platform"
+      ],
       "use_cases": [
         "system_monitoring",
         "resource_analysis",
@@ -296,7 +336,10 @@
         "get_memory_stats",
         "clear_all"
       ],
-      "requirements": ["json", "datetime"],
+      "requirements": [
+        "json",
+        "datetime"
+      ],
       "use_cases": [
         "conversation_management",
         "task_tracking",
@@ -323,7 +366,11 @@
         "delete",
         "get_stats"
       ],
-      "requirements": ["sqlite3", "json", "gzip"],
+      "requirements": [
+        "sqlite3",
+        "json",
+        "gzip"
+      ],
       "use_cases": [
         "knowledge_base",
         "historical_data_storage",
@@ -348,7 +395,11 @@
         "get_proposal",
         "list_proposals"
       ],
-      "requirements": ["sqlite3", "json", "enum"],
+      "requirements": [
+        "sqlite3",
+        "json",
+        "enum"
+      ],
       "use_cases": [
         "democratic_decision_making",
         "consensus_building",
@@ -384,7 +435,11 @@
         "get_delegation",
         "list_delegations"
       ],
-      "requirements": ["sqlite3", "json", "enum"],
+      "requirements": [
+        "sqlite3",
+        "json",
+        "enum"
+      ],
       "use_cases": [
         "task_delegation",
         "capability_matching",
@@ -412,8 +467,13 @@
         "get_queue_info",
         "purge_queue"
       ],
-      "requirements": ["json", "uuid"],
-      "optional_requirements": ["pika"],
+      "requirements": [
+        "json",
+        "uuid"
+      ],
+      "optional_requirements": [
+        "pika"
+      ],
       "use_cases": [
         "async_messaging",
         "inter_agent_communication",
@@ -438,7 +498,11 @@
         "get_task_tree",
         "estimate_total_effort"
       ],
-      "requirements": ["sqlite3", "json", "enum"],
+      "requirements": [
+        "sqlite3",
+        "json",
+        "enum"
+      ],
       "use_cases": [
         "task_breakdown",
         "dependency_management",
@@ -450,41 +514,120 @@
         "sequential",
         "parallel"
       ]
+    },
+    "openrouter_sdk": {
+      "name": "openrouter_sdk",
+      "version": "1.0.0",
+      "description": "Comprehensive OOP SDK for OpenRouter API with focus on free models",
+      "category": "ai_models",
+      "complexity": "medium",
+      "openai_compatible": true,
+      "module_path": "tools.openrouter_sdk",
+      "class_names": [
+        "OpenRouterClient",
+        "OpenRouterModels",
+        "OpenRouterChat",
+        "OpenRouterUtilities"
+      ],
+      "functions": [
+        "list_openrouter_models",
+        "get_free_models",
+        "find_model",
+        "chat_completion",
+        "estimate_tokens",
+        "get_recommended_model"
+      ],
+      "capabilities": [
+        "list_models",
+        "get_free_models",
+        "find_model",
+        "chat_completion",
+        "streaming_chat",
+        "token_estimation",
+        "cost_calculation",
+        "model_recommendations"
+      ],
+      "requirements": [
+        "requests"
+      ],
+      "features": [
+        "OOP design with multiple classes",
+        "Support for free models",
+        "Streaming support",
+        "Conversation history",
+        "Token estimation utilities",
+        "Error handling and retries",
+        "OpenAI-compatible function definitions"
+      ],
+      "use_cases": [
+        "Access 400+ AI models through unified API",
+        "Use free models for cost-effective AI operations",
+        "Chat completions with conversation history",
+        "Model discovery and recommendations",
+        "Token estimation and cost calculation",
+        "Streaming responses for real-time interactions"
+      ],
+      "configuration": {
+        "api_key_required": true,
+        "api_key_env": "OPENROUTER_API_KEY",
+        "timeout": 120,
+        "max_retries": 3,
+        "supports_streaming": true
+      },
+      "agent_config": "agents/openrouter_agent.json",
+      "documentation": "OPENROUTER_SDK_GUIDE.md",
+      "examples": [
+        "examples/example_openrouter_sdk.py"
+      ]
     }
   },
   "agents": {
     "web_browsing_agent": {
       "name": "Web Browsing Agent",
       "description": "Specialized agent for web browsing and navigation",
-      "primary_tools": ["web_browsing"],
+      "primary_tools": [
+        "web_browsing"
+      ],
       "complexity": "simple",
       "config_file": "agents/web_browsing_agent.json"
     },
     "price_tracking_agent": {
       "name": "Price Tracking Agent",
       "description": "Specialized agent for price collection and tracking",
-      "primary_tools": ["price_data_collector", "web_browsing"],
+      "primary_tools": [
+        "price_data_collector",
+        "web_browsing"
+      ],
       "complexity": "medium",
       "config_file": "agents/price_tracking_agent.json"
     },
     "web_crawler_agent": {
       "name": "Web Crawler Agent",
       "description": "Specialized agent for systematic web crawling",
-      "primary_tools": ["web_crawler", "web_browsing"],
+      "primary_tools": [
+        "web_crawler",
+        "web_browsing"
+      ],
       "complexity": "complex",
       "config_file": "agents/web_crawler_agent.json"
     },
     "network_admin_agent": {
       "name": "Network Administrator Agent",
       "description": "Specialized agent for network monitoring",
-      "primary_tools": ["network_monitor", "system_diagnostics"],
+      "primary_tools": [
+        "network_monitor",
+        "system_diagnostics"
+      ],
       "complexity": "complex",
       "config_file": "agents/network_admin_agent.json"
     },
     "sysadmin_agent": {
       "name": "System Administrator Agent",
       "description": "Specialized agent for system monitoring",
-      "primary_tools": ["system_diagnostics", "network_monitor"],
+      "primary_tools": [
+        "system_diagnostics",
+        "network_monitor"
+      ],
       "complexity": "complex",
       "config_file": "agents/sysadmin_agent.json"
     }
