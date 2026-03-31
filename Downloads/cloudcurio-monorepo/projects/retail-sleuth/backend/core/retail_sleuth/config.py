@@ -15,6 +15,6 @@ class AppConfig:
 
 def load_config() -> AppConfig:
     '''Load configuration from environment variables.'''
-    dsn = os.getenv('RETAIL_SLEUTH_DB_DSN', 'postgresql://postgres:postgres@localhost:5432/retail_sleuth')
+    dsn = os.getenv('RETAIL_SLEUTH_DB_DSN', 'postgresql://${DB_USER}:${DB_PASSWORD}@localhost:5432/retail_sleuth')
     log_level = os.getenv('RETAIL_SLEUTH_LOG_LEVEL', 'INFO')
     return AppConfig(db=DatabaseConfig(dsn=dsn), log_level=log_level)
